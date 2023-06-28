@@ -1,4 +1,5 @@
 import requests
+import streamlit as st
 
 ip_address = st.text_input("Enter IP address you want to look up : ")
 headers = {
