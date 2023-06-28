@@ -6,7 +6,7 @@ headers = {
   "authorization": st.secrets["api_key"]
 }
 
-url = f"http://api.ipstack.com/{ip_address}?access_key={hearders}"
+url = f"http://api.ipstack.com/.format(ip_address)?access_key={hearders}"
 response = requests.get (url)
 
 if response.status.code == 200:
