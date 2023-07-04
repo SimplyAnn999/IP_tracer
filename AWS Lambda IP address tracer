@@ -1,0 +1,62 @@
+#--- retreive secret api key
+
+import boto3
+from botocore.exceptions import ClientError
+
+def get_secret():
+    secret_name = "api_key"
+    region_name = "us-east-1"
+    
+ #----secret manager client
+    session = boto3.session.session()
+    client = session.client(
+        service_name = 'secretsmanager',
+        region_name = region_name
+    )
+    
+    try:
+        get_secret_value_response = client.get.secrect.value(
+            SecretId = api_key
+        except ClientError as e:
+            raise e
+            
+ #---decrypt secrect using KMN key
+        secrect = get_secret_value_response['api_key-EMpzv4']
+        
+ # --- Ip Address tracer code
+        
+        import json
+        import requests
+        from pprint import pprint
+        
+        
+        
+        def lambda_handler(event, context):
+            api_key = get_secret()
+            api_url = https://us-east-1.console.aws.amazon.com/kms/home?region_name#/kms/keys/77c614c5-09ee-4901-8e59-1903170e0eeb/aliases
+            
+            if response.status !=200:
+                return {
+                   "statusCode": response.status,
+                    "errorMessage":"could not retreive data"
+                }
+        return {
+            "statusCode": 200,
+            'body': response.data.decode('uft3')
+        }
+                    
+        
+        ip_address = input("Enter Ip Address To Look Up: " )
+        api_key = "client"
+        
+        
+        http = urllib3.PoolManager()
+        http.request('GET', f'{api_url}\{api_key}", ip_address)
+        
+        if response.status_code == 200:
+            data = respnse.json()
+            pprint(data)
+            
+        else:
+            pprint(f"Error {response.status.code}: {response.text}"
+        
